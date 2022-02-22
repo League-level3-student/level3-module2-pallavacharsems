@@ -1,15 +1,18 @@
 package _00_Intro_to_Sorting_Algorithms;
 
+import java.awt.Color;
+import java.util.Random;
+
 import processing.core.PApplet;
 
 /*
  * Goal: Create a program that sorts each rectangle by height!
  * 
  * 1. Create an array of ints. Do not initialize it.
- *
+ 
  *In the settings() method:
  * 2. Set the size of your window to at least 500 width 500 height
- * 
+  
  * In the setup() method:
  * 3. Initialize your array to contain 50 ints
  * 
@@ -38,43 +41,62 @@ import processing.core.PApplet;
  *     mousePressed variable
  */
 public class _03_VisualArraySorter extends PApplet {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 400;
+	static final int WIDTH = 500;
+	static final int HEIGHT = 500;
+int arr[];
+Random rand = new Random();
+int num = HEIGHT;
 
-    @Override
-    public void settings() {
-        
-    }
+	@Override
+	public void settings() {
+setSize(WIDTH, HEIGHT);
+	}
 
-    @Override
-    public void setup() {
-        
-    }
+	@Override
+	public void setup() {
+arr = new int[50];
+randomize();
+noStroke();
+	}
+	public void randomize() {
+		for (int i = 0; i < arr.length; i++) {
+			int rando = rand.nextInt(num);
+			arr[i] = rando;
+		}
+	}
 
-    @Override
-    public void draw() {
-        
-    }
+	@Override
+	public void draw() {
+background(Color.blue.getRGB());
+fill(Color.red.getRGB());
+for (int i = 0; i < arr.length; i++) {
+rect(i*(WIDTH/arr.length), HEIGHT, WIDTH/arr.length, -arr[i]);
+stepSort(arr);
+if(mousePressed) {
+	randomize();
+}
+}
+	}
 
-    static public void main(String[] passedArgs) {
-        PApplet.main(_03_VisualArraySorter.class.getName());
-    }
-    
-    /*********************** DO NOT MODIFY THE CODE BELOW ********************/
-    
-    int startIndex = 1;
+	static public void main(String[] passedArgs) {
+		PApplet.main(_03_VisualArraySorter.class.getName());
+	}
 
-    void stepSort(int[] arr) {
-      for (int i = startIndex; i < arr.length; i++) {
-        if (arr[i - 1] > arr[i]) {
-          int t = arr[i];
-          arr[i] = arr[i - 1];
-          arr[i - 1] = t;
+	/*********************** DO NOT MODIFY THE CODE BELOW ********************/
 
-          startIndex = i;
-          return;
-        }
-      }
-      startIndex = 1;
-    }
+	int startIndex = 1;
+
+	void stepSort(int[] arr) {
+		for (int i = startIndex; i < arr.length; i++) {
+			if (arr[i - 1] > arr[i]) {
+				int t = arr[i];
+				arr[i] = arr[i - 1];
+				arr[i - 1] = t;
+
+				startIndex = i;
+				return;
+			}
+		}
+		startIndex = 1;
+	}
 }
