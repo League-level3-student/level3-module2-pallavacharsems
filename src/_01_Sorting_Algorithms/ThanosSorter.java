@@ -1,5 +1,7 @@
 package _01_Sorting_Algorithms;
 
+import _00_Intro_to_Sorting_Algorithms._01_SortedArrayChecker;
+
 public class ThanosSorter extends Sorter {
     public ThanosSorter() {
         type = "Thanos";
@@ -45,6 +47,9 @@ public class ThanosSorter extends Sorter {
      */
     @Override
     void sort(int[] arr, SortingVisualizer display) {
-        
+    	while(_01_SortedArrayChecker.intArraySorted(arr) ==  false) {
+    		int g = 0;
+    		
+    	}
     }
 }
