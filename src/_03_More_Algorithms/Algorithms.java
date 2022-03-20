@@ -26,7 +26,42 @@ public class Algorithms {
         return h;
     }
     
-    public static int findBrokenEgg(List<String> eggs) {
-        return 0;
+    public static boolean isSquare(int value) {
+    	for (int i = 1; i <= value; i++) {
+			if(value/i == i) {
+    	return true;
     }
+    	}
+			return false;
+    }
+    
+    public static boolean isCube(int value) {
+    	for (int i = 1; i <= value; i++) {
+			float g = (float)value/(float)i/(float)i;
+    		if(g == i) {
+				return true;
+    }
+    	}
+			return false;
+    }
+    
+    public static int findBrokenEgg(List<String> eggs) {
+        for (int i = 0; i < eggs.size(); i++) {
+        	if(eggs.get(i).equals("cracked")) {
+				return i;
+			}
+		}
+        return -1;
+    }
+    
+    
+    public static int countPearls(List<Boolean> oyesters) {
+        for (int i = 0; i < oyesters.size(); i++) {
+        	if(oyesters.get(i)== true) {
+				return i;
+			}
+		}
+        return -1;
+    }
+    
 }
