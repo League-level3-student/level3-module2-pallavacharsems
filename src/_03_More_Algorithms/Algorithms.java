@@ -1,5 +1,6 @@
 package _03_More_Algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -63,5 +64,61 @@ public class Algorithms {
 		}
         return -1;
     }
+    
+    
+    
+    public static double findTallest(List<Double> peeps) {
+    	double high = peeps.get(0);
+    	for (int i = 0; i < peeps.size(); i++) {
+        	if(high<peeps.get(i)) {
+        		high = peeps.get(i);
+        	}
+			
+			
+		}
+    	return high;
+        
+    }
+    
+    public static String findLongestWord(List<String> words) {
+    	String log = words.get(0);
+    	for (int i = 0; i < words.size(); i++) {
+        	if(log.length()<words.get(i).length()) {
+        		log = words.get(i);
+        	}
+			
+			
+		}
+    	return log;
+        
+    }
+    
+    public static boolean containsSOS(List<String> message) {
+    	String SOS = "... --- ...";
+    	for (int i = 0; i < message.size(); i++) {
+        	if(message.get(i).contains(SOS)) {
+        		return true;
+        	}
+			
+			
+		}
+    	return false;
+        
+    }
+    
+    
+    public static Double sortScores(List<Double> results) {
+    	
+    	for (int i = 0; i < results.size(); i++) {
+        	
+        		return 1.1;
+        	
+			
+			
+		}
+    	return -1.1;
+        
+    }
+    
     
 }
